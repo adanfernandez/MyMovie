@@ -10,6 +10,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val textView = findViewById<TextView>(R.id.message)
-        textView.text = getString(R.string.app_description)
+        textView.text = getString(R.string.api_url)
     }
 }
