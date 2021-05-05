@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="api_TOKEN">eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MmVlOTRmZGY3YWU0YWVmNjIwMGY1M2NjZTk1NGRlZiIsInN1YiI6IjVkMWU3NDYxNjc0M2ZhMzE5M2QxNWIyOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dZp0ah95n2FBdhfSE22u2J3KO46bteef6Cb6hbnCAWM</string>
+    <string name="api_key">92ee94fdf7ae4aef6200f53cce954def</string>
     <string name="api_url">https://api.themoviedb.org/3</string>
     <string name="api_img_url">https://image.tmdb.org/t/p/</string>
     <string name="api_latest">/discover/movie</string>

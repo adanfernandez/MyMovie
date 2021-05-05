@@ -7,14 +7,14 @@
     android:paddingStart="20dp"
     android:paddingEnd="20dp"
     android:paddingBottom="10dp"
-    tools:context="com.miw.mymovie.activity.RegisterActivity"
+    tools:context=".activity.RegisterActivity"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="70dp"
         android:layout_marginBottom="200dp"
         android:orientation="vertical"
@@ -22,6 +22,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register_name" />
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/register_tooltip_name" />
 
         <TextView
             android:id="@+id/txUsername"
@@ -34,15 +48,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="@string/register_tooltip_username" />
+            android:hint="@string/register_tooltip_username"
+            android:inputType="textPersonName" />
 
         <TextView
             android:id="@+id/txPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/register_password"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:text="@string/register_password" />
 
         <EditText
             android:id="@+id/etPassword"
@@ -56,18 +70,16 @@
             android:id="@+id/txrePassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/register_repassword"
             android:layout_marginTop="20dp"
-            />
+            android:text="@string/register_repassword" />
 
         <EditText
             android:id="@+id/etRepassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPassword"
             android:hint="@string/register_tooltip_repassword"
-            />
+            android:inputType="textPassword" />
 
         <Button
             android:id="@+id/btnRegister"
