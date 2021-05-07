@@ -60,6 +60,15 @@
             android:layout_height="wrap_content"
             android:text="@string/login" />
 
+        <TextView
+            android:id="@+id/txGoRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/dark_700"
+            android:text="@string/login_go_register" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,10 +3,9 @@
     <string name="app_description">Aplicación de my movies</string>
 
     <string name="register">Registrarse</string>
-    <string name="login">Identificarse</string>
     <string name="register_name">Nombre completo:</string>
-    <string name="register_username">Nombre de usuario:</string>
     <string name="register_password">Contraseña:</string>
+    <string name="register_username">Nombre de usuario:</string>
     <string name="register_repassword">Repita contraseña:</string>
     <string name="register_tooltip_name">Nombre completo</string>
     <string name="register_tooltip_username">Nombre de usuario</string>
@@ -14,12 +13,18 @@
     <string name="register_tooltip_repassword">Re-contraseña</string>
     <string name="register_validation_empty_fields">Faltan campos por rellenar</string>
     <string name="register_validation_wrong_passwords">Las contraseñas no coinciden</string>
+    <string name="register_go_login">Ya tengo cuenta, identificarme.</string>
+
+    <string name="login">Identificarse</string>
     <string name="login_password">Contraseña:</string>
     <string name="login_tooltip_username">Nombre de usuario</string>
     <string name="login_username">Nombre de usuario:</string>
+    <string name="login_go_register">Aún no tengo cuenta, registrarme.</string>
 
 
-    <string name="latest_msg">Novedades</string>
+    <string name="latest_title">Novedades</string>
+
+    <string name="favourites_title">Favoritas</string>
 
 
 </resources>

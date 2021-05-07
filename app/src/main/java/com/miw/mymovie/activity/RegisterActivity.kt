@@ -1,17 +1,24 @@
 package com.miw.mymovie.activity
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.ConnectivityManager
 import android.os.Bundle
-import android.service.autofill.Validators.not
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.miw.mymovie.R
-import com.miw.mymovie.api.FilmClient
+import com.miw.mymovie.server.FilmServer
 import com.miw.mymovie.databinding.ActivityRegisterBinding
 import com.miw.mymovie.model.User
 
+
 class RegisterActivity : AppCompatActivity() {
+    private val REQUEST_INTERNET_PERMISSIONS = 1
+    private val REQUEST_ACCESS_NETWORK_STATE = 2
 
     private lateinit var binding: ActivityRegisterBinding
 
@@ -19,7 +26,8 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.btnRegister.setOnClickListener { register() }
+        binding.btnRegister.setOnClickListener { askForPermission() }
+        binding.txGoLogin.setOnClickListener { goLogin() }
     }
 
     private fun Context.toast(message: Int, duration: Int = Toast.LENGTH_SHORT) {
@@ -27,6 +35,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun register() {
+
         val name = binding.etName.text.toString()
         val username = binding.etUsername.text.toString()
         val password = binding.etPassword.text.toString()
@@ -41,13 +50,19 @@ class RegisterActivity : AppCompatActivity() {
             username = username,
             password = password
         )
-        FilmClient().getLatestFilms()
+        FilmServer().getLatestFilms()
 
         // Comprobamos que no exista el usuario y lo añadimos al modelo
         startActivity(
             Intent(
-                this, LatestsActivity::class.java
+                this, MainActivity::class.java
             )
+        )
+    }
+
+    private fun goLogin() {
+        startActivity(
+            Intent(this, LoginActivity::class.java)
         )
     }
 
@@ -73,5 +88,52 @@ class RegisterActivity : AppCompatActivity() {
         }
         return error
     }
+
+    private fun askForPermission() {
+        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        if(cm.activeNetwork!=null)
+            register()
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this, arrayOf(Manifest.permission.INTERNET),
+                REQUEST_INTERNET_PERMISSIONS
+            )
+        }
+//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_NETWORK_STATE)
+//            == PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_NETWORK_STATE),
+//                REQUEST_ACCESS_NETWORK_STATE)
+//        }
+
+        register()
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        var canRegister = true
+        when (requestCode) {
+            REQUEST_INTERNET_PERMISSIONS -> {
+                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                    canRegister = false
+                } else {
+                    register()
+                }
+            }
+//            REQUEST_ACCESS_NETWORK_STATE -> {
+//                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+//                    canRegister = false
+//                }
+//            }
+        }
+        if (canRegister)
+            register()
+    }
+
 
 }

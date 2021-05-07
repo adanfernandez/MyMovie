@@ -87,6 +87,13 @@
             android:layout_height="wrap_content"
             android:text="@string/register" />
 
+        <TextView
+            android:id="@+id/txGoLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark_700"
+            android:text="@string/register_go_login" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
