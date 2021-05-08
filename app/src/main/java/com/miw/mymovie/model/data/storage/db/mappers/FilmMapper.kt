@@ -8,7 +8,7 @@ object FilmMapper  {
 
     private fun convertFilmToDomain(film: FilmEntity?): Film? {
         if(film != null) {
-            return Film(idRemote=film.id_remote,title=film.title, username=film.username,seen=film.seen, image="", originalTitle = "", overview = "", voteAverage = 0.0, voteCount = 0)
+            return Film(idRemote=film.idRemote,title=film.title, username=film.username,seen=film.seen, image="", originalTitle = "", overview = "", voteAverage = 0.0, voteCount = 0)
         }
         return null
     }
@@ -20,7 +20,7 @@ object FilmMapper  {
             title = film.title,
             username = film.username,
             seen = film.seen,
-            id_remote = film.idRemote
+            idRemote = film.idRemote
         )
         return null
     }
