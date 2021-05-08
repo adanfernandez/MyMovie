@@ -20,7 +20,9 @@ abstract class MyDatabase: RoomDatabase() {
                 App.instance,
                 MyDatabase::class.java,
                 "database-name" // Nombre de la BD
-            ).build()
+            )
+                .allowMainThreadQueries()
+                .build()
         }
     }
 }

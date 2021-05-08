@@ -14,6 +14,8 @@
     <string name="register_validation_empty_fields">Faltan campos por rellenar</string>
     <string name="register_validation_wrong_passwords">Las contraseñas no coinciden</string>
     <string name="register_go_login">Ya tengo cuenta, identificarme.</string>
+    <string name="login_error">Credenciales incorrectas</string>
+    <string name="register_error">Ya existe un usuario con ese nick. Por favor, pruebe otro</string>
 
     <string name="login">Identificarse</string>
     <string name="login_password">Contraseña:</string>

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.miw.mymovie.R
 import com.miw.mymovie.databinding.ActivityLoginBinding
 import com.miw.mymovie.model.User
+import com.miw.mymovie.model.datasources.UserProvider
 import com.miw.mymovie.server.FilmServer
 
 class LoginActivity : AppCompatActivity() {
@@ -34,10 +35,17 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
-        val user = User(
-            username = username,
-            password = password
-        )
+        val user: User? = UserProvider.requestUserByUsernameAndPassword(username, password)
+        if(user == null) {
+            toast(R.string.login_error)
+        } else {
+            // Comprobamos que no exista el usuario y lo añadimos al modelo
+            startActivity(
+                Intent(
+                    this, MainActivity::class.java
+                )
+            )
+        }
 
         // Comprobamos que no exista el usuario y lo añadimos al modelo
         startActivity(

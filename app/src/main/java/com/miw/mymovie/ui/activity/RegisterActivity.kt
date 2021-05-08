@@ -14,6 +14,7 @@ import com.miw.mymovie.R
 import com.miw.mymovie.server.FilmServer
 import com.miw.mymovie.databinding.ActivityRegisterBinding
 import com.miw.mymovie.model.User
+import com.miw.mymovie.model.datasources.UserProvider
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -52,12 +53,28 @@ class RegisterActivity : AppCompatActivity() {
         )
 
 
-        // Comprobamos que no exista el usuario y lo añadimos al modelo
-        startActivity(
-            Intent(
-                this, MainActivity::class.java
+        val user_register: User? = UserProvider.requestUserByUsername(username)
+
+
+        if(user_register != null) {
+            toast(R.string.register_error)
+        } else {
+            val register: Boolean = UserProvider.requestSaveNewUser(user)
+            if(!register) {
+                // Comprobamos que no exista el usuario y lo añadimos al modelo
+                toast(R.string.register_error, 6)
+            }
+            // Comprobamos que no exista el usuario y lo añadimos al modelo
+            startActivity(
+                Intent(
+                    this, MainActivity::class.java
+                )
             )
-        )
+        }
+
+
+
+
     }
 
     private fun goLogin() {

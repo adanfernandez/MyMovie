@@ -22,6 +22,8 @@ class UserRepository {
     }
 
     fun requestUserByUsername(username: String): User? {
+
+
         val userDb = userDao.findByUsername(username)
         return UserMapper.convertToDomain(userDb)
     }

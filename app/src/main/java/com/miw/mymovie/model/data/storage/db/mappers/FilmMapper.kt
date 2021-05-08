@@ -16,14 +16,12 @@ object FilmMapper  {
     fun convertFromDomain(film: Film) = convertFilmFromDomain(film)
 
     private fun convertFilmFromDomain(film: Film): FilmEntity? {
-        if(film != null) {
-            return FilmEntity(
-                title = film.title,
-                username = film.username,
-                seen = film.seen,
-                id_remote = film.idRemote
-            )
-        }
+        return FilmEntity(
+            title = film.title,
+            username = film.username,
+            seen = film.seen,
+            id_remote = film.idRemote
+        )
         return null
     }
 }
