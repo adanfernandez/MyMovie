@@ -58,7 +58,7 @@ class RegisterActivity : AppCompatActivity() {
 
 
         if(user_register != null) {
-            toast(R.string.register_error)
+            toast(R.string.register_user_exists)
         } else {
             val register: Boolean = UserProvider.requestSaveNewUser(user)
             if(!register) {
@@ -127,7 +127,7 @@ class RegisterActivity : AppCompatActivity() {
 //                REQUEST_ACCESS_NETWORK_STATE)
 //        }
 
-        register()
+        //register()
     }
 
     override fun onRequestPermissionsResult(
