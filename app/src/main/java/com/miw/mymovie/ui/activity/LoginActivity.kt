@@ -46,13 +46,6 @@ class LoginActivity : AppCompatActivity() {
                 )
             )
         }
-
-        // Comprobamos que no exista el usuario y lo añadimos al modelo
-        startActivity(
-            Intent(
-                this, MainActivity::class.java
-            )
-        )
     }
 
     private fun goRegister() {
