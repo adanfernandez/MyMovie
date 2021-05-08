@@ -2,12 +2,14 @@ package com.miw.mymovie.ui.activity
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.miw.mymovie.R
 import com.miw.mymovie.databinding.ActivityLoginBinding
 import com.miw.mymovie.model.User
+import com.miw.mymovie.model.data.storage.local.Settings
 import com.miw.mymovie.model.datasources.UserProvider
 import com.miw.mymovie.server.FilmServer
 
@@ -39,6 +41,9 @@ class LoginActivity : AppCompatActivity() {
         if(user == null) {
             toast(R.string.login_error)
         } else {
+
+            guardarLogin(username)
+
             // Comprobamos que no exista el usuario y lo añadimos al modelo
             startActivity(
                 Intent(
@@ -69,4 +74,9 @@ class LoginActivity : AppCompatActivity() {
         return error
     }
 
+
+
+    private fun guardarLogin(username: String) {
+        Settings(this@LoginActivity).login = username
+    }
 }

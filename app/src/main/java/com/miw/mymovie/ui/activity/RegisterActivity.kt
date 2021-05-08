@@ -14,6 +14,7 @@ import com.miw.mymovie.R
 import com.miw.mymovie.server.FilmServer
 import com.miw.mymovie.databinding.ActivityRegisterBinding
 import com.miw.mymovie.model.User
+import com.miw.mymovie.model.data.storage.local.Settings
 import com.miw.mymovie.model.datasources.UserProvider
 
 
@@ -63,13 +64,15 @@ class RegisterActivity : AppCompatActivity() {
             if(!register) {
                 // Comprobamos que no exista el usuario y lo añadimos al modelo
                 toast(R.string.register_error, 6)
-            }
-            // Comprobamos que no exista el usuario y lo añadimos al modelo
-            startActivity(
-                Intent(
-                    this, MainActivity::class.java
+            } else {
+                guardarLogin(username)
+                // Comprobamos que no exista el usuario y lo añadimos al modelo
+                startActivity(
+                    Intent(
+                        this, MainActivity::class.java
+                    )
                 )
-            )
+            }
         }
 
 
@@ -153,4 +156,8 @@ class RegisterActivity : AppCompatActivity() {
     }
 
 
+
+    private fun guardarLogin(username: String) {
+        Settings(this@RegisterActivity).login = username
+    }
 }
