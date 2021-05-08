@@ -2,6 +2,8 @@ package com.miw.mymovie.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.miw.mymovie.R
@@ -24,7 +26,7 @@ class MainActivity : AppCompatActivity(), LatestFragment.OnLatestFragmentInterac
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.logout.setOnClickListener { logout() }
+        setSupportActionBar(binding.toolbar)
         initialize()
     }
 
@@ -37,6 +39,21 @@ class MainActivity : AppCompatActivity(), LatestFragment.OnLatestFragmentInterac
             true
         }
         launchFragment(LATEST_FRAGMENT)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_toolbar, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return  when (item.itemId) {
+            R.id.logout_option -> {
+                logout()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun logout() {
