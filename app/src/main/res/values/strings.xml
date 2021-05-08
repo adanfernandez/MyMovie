@@ -30,4 +30,6 @@
     <string name="film_vote_count">Votos</string>
     <string name="film_vote_rate">Valoración</string>
 
+    <string name="logout">Salir de sesión</string>
+
 </resources>

@@ -1,10 +1,13 @@
 package com.miw.mymovie.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.miw.mymovie.R
+import com.miw.mymovie.databinding.ActivityLoginBinding
 import com.miw.mymovie.databinding.ActivityMainBinding
+import com.miw.mymovie.model.data.storage.local.Settings
 import com.miw.mymovie.ui.adapters.FilmListAdapter
 
 class MainActivity : AppCompatActivity(), LatestFragment.OnLatestFragmentInteractionListener,
@@ -18,10 +21,10 @@ class MainActivity : AppCompatActivity(), LatestFragment.OnLatestFragmentInterac
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceState)u7
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        binding.logout.setOnClickListener { logout() }
         initialize()
     }
 
@@ -36,6 +39,14 @@ class MainActivity : AppCompatActivity(), LatestFragment.OnLatestFragmentInterac
         launchFragment(LATEST_FRAGMENT)
     }
 
+    private fun logout() {
+        Settings(this@MainActivity).clearAll()
+        startActivity(
+            Intent(
+                this, LoginActivity::class.java
+            )
+        )
+    }
 
     private fun launchFragment(position: Int) {
         val fragment = when (position) {
