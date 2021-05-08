@@ -1,10 +1,11 @@
-package com.miw.mymovie.activity
+package com.miw.mymovie.ui.activity
 
 import android.os.Bundle
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.miw.mymovie.R
 import com.miw.mymovie.databinding.ActivityMainBinding
+import com.miw.mymovie.ui.adapters.FilmListAdapter
 
 class MainActivity : AppCompatActivity(), LatestFragment.OnLatestFragmentInteractionListener,
     FavouritesFragment.OnFavouritesFragmentInteractionListener {
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity(), LatestFragment.OnLatestFragmentInterac
             }
             true
         }
-
+        launchFragment(LATEST_FRAGMENT)
     }
 
 

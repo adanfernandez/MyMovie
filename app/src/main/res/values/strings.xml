@@ -23,8 +23,8 @@
 
 
     <string name="latest_title">Novedades</string>
-
     <string name="favourites_title">Favoritas</string>
-
+    <string name="film_vote_count">Votos</string>
+    <string name="film_vote_rate">Valoración</string>
 
 </resources>

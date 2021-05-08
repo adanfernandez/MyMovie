@@ -1,4 +1,4 @@
-package com.miw.mymovie.activity
+package com.miw.mymovie.ui.activity
 
 import android.content.Context
 import android.os.Bundle

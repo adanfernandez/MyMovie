@@ -16,9 +16,7 @@ object UserMapper  {
     fun convertFromDomain(user: User) = convertUserFromDomain(user)
 
     private fun convertUserFromDomain(user: User): UserEntity? {
-        if(user != null) {
-            return UserEntity(user.username, user.password, user.name)
-        }
+        return UserEntity(user.username, user.password, user.name)
         return null
     }
 }

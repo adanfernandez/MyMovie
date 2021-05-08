@@ -1,4 +1,4 @@
-package com.miw.mymovie.activity
+package com.miw.mymovie.ui.activity
 
 import android.content.Context
 import android.os.Bundle
@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.miw.mymovie.R
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.miw.mymovie.databinding.FragmentLatestBinding
-import com.miw.mymovie.server.FilmServer
-import java.lang.RuntimeException
+import com.miw.mymovie.ui.adapters.FilmListAdapter
+import com.miw.mymovie.ui.viewmodels.FilmsViewModel
 
 class LatestFragment : Fragment() {
 
@@ -17,6 +17,8 @@ class LatestFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var listener: OnLatestFragmentInteractionListener
+
+    private val viewModel: FilmsViewModel = FilmsViewModel()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -27,20 +29,24 @@ class LatestFragment : Fragment() {
         }
     }
 
-    override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         _binding = FragmentLatestBinding.inflate(inflater, container, false)
-        loadLatest()
+        binding.latestList.layoutManager = LinearLayoutManager(context)
+        viewModel.filmList.observe(this) { items ->
+            binding.latestList.adapter = FilmListAdapter(items.latestFilmList) {
+
+            }
+        }
+
+        viewModel.requestFilms()
         return binding.root
     }
 
-    fun loadLatest(){
-       binding.latestList
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

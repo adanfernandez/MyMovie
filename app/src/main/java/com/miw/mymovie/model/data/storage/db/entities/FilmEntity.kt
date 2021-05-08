@@ -17,7 +17,7 @@ object FilmTable {
 data class FilmEntity(
     @ColumnInfo(name = FilmTable.TITLE) @NotNull val title: String,
     @ColumnInfo(name = FilmTable.USERNAME) @NotNull val username: String,
-    @ColumnInfo(name = FilmTable.SEEN) @NotNull val seen: Byte,
+    @ColumnInfo(name = FilmTable.SEEN) @NotNull val seen: Boolean,
     @PrimaryKey @ColumnInfo(name = FilmTable.ID_REMOTE) @NotNull val id_remote: Long
 )
 

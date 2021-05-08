@@ -1,11 +1,12 @@
 package com.miw.mymovie.server
 
 import com.miw.mymovie.model.Film
+import com.miw.mymovie.model.LatestFilmList
 
 object FilmDataMapper {
 
-    fun convertToModel(filmResult: FilmResult): List<Film> =
-        convertToFilms(filmResult.results)
+    fun convertToModel(filmResult: FilmResult): LatestFilmList =
+        LatestFilmList(convertToFilms(filmResult.results))
 
 
     private fun convertToFilms(list: List<FilmObject>): List<Film>{

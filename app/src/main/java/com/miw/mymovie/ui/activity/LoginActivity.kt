@@ -1,4 +1,4 @@
-package com.miw.mymovie.activity
+package com.miw.mymovie.ui.activity
 
 import android.content.Context
 import android.content.Intent
@@ -38,7 +38,6 @@ class LoginActivity : AppCompatActivity() {
             username = username,
             password = password
         )
-        FilmServer().getLatestFilms()
 
         // Comprobamos que no exista el usuario y lo añadimos al modelo
         startActivity(
