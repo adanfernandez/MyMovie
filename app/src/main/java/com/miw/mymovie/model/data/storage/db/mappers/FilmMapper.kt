@@ -20,8 +20,9 @@ object FilmMapper  {
             title = film.title,
             username = film.username,
             seen = film.seen,
-            idRemote = film.idRemote
+            idRemote = film.idRemote,
+            voteCount = film.voteCount,
+            voteAverage = film.voteAverage
         )
-        return null
     }
 }
