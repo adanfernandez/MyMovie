@@ -22,4 +22,11 @@ interface UserDao {
     @Query("SELECT * FROM ${UserTable.TABLE_NAME}")
     fun getAll(): List<UserEntity>
 
+
+    @Query("SELECT * FROM ${UserTable.TABLE_NAME} WHERE ${UserTable.USERNAME} LIKE :username AND ${UserTable.PASSWORD} LIKE :password")
+    fun findByUsernameAndPassword(username: String, password: String): UserEntity?
+
+    @Query("SELECT * FROM ${UserTable.TABLE_NAME} WHERE ${UserTable.USERNAME} LIKE :username")
+    fun findByUsername(username: String): UserEntity?
+
 }
