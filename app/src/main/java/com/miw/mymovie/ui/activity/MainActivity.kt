@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity(), LatestFragment.OnLatestFragmentInterac
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)u7
+        super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.logout.setOnClickListener { logout() }
