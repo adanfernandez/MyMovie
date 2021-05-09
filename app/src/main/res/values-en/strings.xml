@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MyMovie</string>
+    <string name="app_description">My Movies Application</string>
+
+    <string name="register">Register</string>
+    <string name="register_name">Complete name:</string>
+    <string name="register_password">Password:</string>
+    <string name="register_username">Username:</string>
+    <string name="register_repassword">Repeat password:</string>
+    <string name="register_tooltip_name">Complete name</string>
+    <string name="register_tooltip_username">Username</string>
+    <string name="register_tooltip_password">Password</string>
+    <string name="register_tooltip_repassword">Re-password</string>
+    <string name="register_validation_empty_fields">Missing fields to fill</string>
+    <string name="register_validation_wrong_passwords">The passwords do not match</string>
+    <string name="register_go_login">I already have an account, go login</string>
+    <string name="login_error">Wrong credentials</string>
+    <string name="register_user_exists">A user with that username already exists. Please try another</string>
+    <string name="register_error">Registration process failed. Try in a few minutes</string>
+
+    <string name="login">Login</string>
+    <string name="login_password">Password:</string>
+    <string name="login_tooltip_username">Username</string>
+    <string name="login_username">Username:</string>
+    <string name="login_go_register">I do not have an account yet, go register.</string>
+
+
+    <string name="latest_title">Latest</string>
+    <string name="favourites_title">Favourites</string>
+    <string name="film_vote_count">Vote count</string>
+    <string name="film_vote_rate">Vote rate</string>
+    <string name="film_seen">Seen</string>
+    <string name="film_fav">Favourite</string>
+    <string name="film_image">Movie image</string>
+
+    <string name="logout">Logout</string>
+
+</resources>
