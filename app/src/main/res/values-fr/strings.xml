@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyMovie</string>
+    <string name="app_description">Application de mes films</string>
+
+    <string name="register">Enregistrement</string>
+    <string name="register_name">Nom complet:</string>
+    <string name="register_password">Mot de passe:</string>
+    <string name="register_username">Nom d\'utilisateur:</string>
+    <string name="register_repassword">Répéter le mot de passe:</string>
+    <string name="register_tooltip_name">Nom complet</string>
+    <string name="register_tooltip_username">Nom d\'utilisateur</string>
+    <string name="register_tooltip_password">Mot de passe</string>
+    <string name="register_tooltip_repassword">Répéter le mot de passe</string>
+    <string name="register_validation_empty_fields">Champs manquants à remplir</string>
+    <string name="register_validation_wrong_passwords">Les mots de passe ne correspondent pas</string>
+    <string name="register_go_login">J\'ai déjà un compte, connectez-vous.</string>
+    <string name="login_error">Mauvais identifiants</string>
+    <string name="register_user_exists">Un utilisateur avec ce pseudo existe déjà. Veuillez en essayer un autre</string>
+    <string name="register_error">Le processus d\'inscription a échoué. Essayez dans quelques minutes</string>
+
+    <string name="login">Identifier</string>
+    <string name="login_password">Mot de passe</string>
+    <string name="login_tooltip_username">Nom d\'utilisateur</string>
+    <string name="login_username">Nom d\'utilisateur:</string>
+    <string name="login_go_register">Je n\'ai pas encore de compte, inscrivez-vous.</string>
+
+
+    <string name="latest_title">Nouveautes</string>
+    <string name="favourites_title">Favoris</string>
+    <string name="film_vote_count">Votes</string>
+    <string name="film_vote_rate">Évaluation</string>
+    <string name="film_seen">Vue</string>
+    <string name="film_fav">Préféré</string>
+    <string name="film_image">Image de film</string>
+
+    <string name="logout">Se déconnecter</string>
+
+</resources>

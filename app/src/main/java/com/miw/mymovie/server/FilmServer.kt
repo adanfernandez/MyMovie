@@ -9,6 +9,7 @@ import com.miw.mymovie.server.constants.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.net.URL
+import java.util.*
 
 
 class FilmServer {
@@ -20,7 +21,7 @@ class FilmServer {
         return withContext(Dispatchers.IO) {
 
             val jsonFilmList =
-                URL("${API_URL}${API_EP_LATEST}?api_key=${API_KEY}&language=es-ES")
+                URL("${API_URL}${API_EP_LATEST}?api_key=${API_KEY}&language=${getLanguage()}")
                     .readText()
 
             val result = Gson().fromJson(jsonFilmList, FilmResult::class.java)
@@ -41,10 +42,20 @@ class FilmServer {
     suspend fun getMovie(remoteId: Long): Film {
         return withContext(Dispatchers.IO) {
             val jsonFilm =
-                URL("${API_URL}${API_EP_MOVIE}/$remoteId?api_key=${API_KEY}&language=es-ES")
+                URL("${API_URL}${API_EP_MOVIE}/$remoteId?api_key=${API_KEY}&language=${getLanguage()}")
                     .readText()
             val result = Gson().fromJson(jsonFilm, FilmObject::class.java)
             FilmDataMapper.convertOneToModel(result)
         }
+    }
+
+    private fun getLanguage() :String {
+        return when(Locale.getDefault().language) {
+            "en" -> "en-EN"
+            "es" -> "es-ES"
+            "fr" -> "fr-FR"
+            else -> "es-ES"
+        }
+
     }
 }
