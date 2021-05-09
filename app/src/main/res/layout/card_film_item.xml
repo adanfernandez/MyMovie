@@ -12,6 +12,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/imgseen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="54dp"
+            android:contentDescription="@string/film_seen"
+            android:visibility="invisible"
+            card_view:layout_constraintBottom_toTopOf="@+id/txVoteCount"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.964"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="1.0"
+            card_view:srcCompat="@android:drawable/ic_menu_view" />
+
         <View
             android:id="@+id/divider2"
             android:layout_width="0dp"
@@ -67,8 +82,8 @@
             android:layout_marginBottom="8dp"
             android:text="17004"
             android:textAlignment="center"
-            android:textSize="18sp"
             android:textColor="@color/dark_500"
+            android:textSize="18sp"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toEndOf="@+id/divider3"

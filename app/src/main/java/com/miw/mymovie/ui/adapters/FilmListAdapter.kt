@@ -1,6 +1,7 @@
 package com.miw.mymovie.ui.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +23,9 @@ class FilmListAdapter(val items: List<Film>?, private val itemClick: (Film) -> U
                 binding.txFilmTitle.text = film.title
                 binding.txVoteCount.text = voteCount(film.voteCount)
                 binding.txVoteRate.text = voteRate(film.voteAverage)
+                if (film.seen) {
+                    binding.imgseen.visibility = View.VISIBLE
+                }
                 itemView.setOnClickListener { itemClick(this) }
             }
         }
