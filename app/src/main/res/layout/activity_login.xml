@@ -82,7 +82,7 @@
             android:clickable="true"
             android:focusable="true"
             android:text="@string/login_go_register"
-            android:textColor="@color/dark_200" />
+            android:textColor="@color/blue_900" />
 
     </LinearLayout>
 
