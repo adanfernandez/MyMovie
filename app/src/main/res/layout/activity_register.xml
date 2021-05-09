@@ -93,7 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/register_go_login"
-            android:textColor="@color/dark_700" />
+            android:textColor="@color/blue_900" />
 
     </LinearLayout>
 
