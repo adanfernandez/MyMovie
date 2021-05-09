@@ -25,4 +25,9 @@ class FilmRepository {
         filmDao.insert(FilmMapper.convertFromDomain(film))
     }
 
+    fun updateFavoriteFilm(film: Film) {
+        //Save favorite book
+        filmDao.update(FilmMapper.convertFromDomain(film))
+    }
+
 }

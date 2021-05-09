@@ -20,4 +20,8 @@ object FilmProvider {
     fun saveFavoriteFilm(film: Film) {
         return filmRepository.saveFavoriteFilm(film)
     }
+
+    fun updateFavouriteFilm(film: Film) {
+        return filmRepository.updateFavoriteFilm(film)
+    }
 }

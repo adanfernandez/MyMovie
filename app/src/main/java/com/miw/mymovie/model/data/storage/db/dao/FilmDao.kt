@@ -10,7 +10,7 @@ interface FilmDao {
     fun insert (film: FilmEntity?): Long
 
     @Update
-    fun update (vararg film: FilmEntity)
+    fun update (vararg film: FilmEntity?)
 
     @Delete
     fun delete (film: FilmEntity?)
