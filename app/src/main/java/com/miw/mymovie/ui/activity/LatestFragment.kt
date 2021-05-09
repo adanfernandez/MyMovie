@@ -1,6 +1,7 @@
 package com.miw.mymovie.ui.activity
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,8 +39,10 @@ class LatestFragment : Fragment() {
         _binding = FragmentLatestBinding.inflate(inflater, container, false)
         binding.latestList.layoutManager = LinearLayoutManager(context)
         viewModel.filmList.observe(this) { items ->
-            binding.latestList.adapter = FilmListAdapter(items.latestFilmList) {
-
+            binding.latestList.adapter = FilmListAdapter(items.filmList) {
+                startActivity(Intent(context, FilmDetailActivity::class.java).apply {
+                    putExtra(FilmDetailActivity.EXTRA_FILM, it)
+                })
             }
         }
 

@@ -6,9 +6,9 @@ import com.miw.mymovie.server.FilmServer
 import kotlinx.parcelize.Parcelize
 
 
-data class LatestFilmList(val latestFilmList: List<Film>) {
+data class FilmList(val filmList: List<Film>) {
     companion object {
-        suspend fun getLatest() :LatestFilmList  {
+        suspend fun getFilms() :FilmList  {
             return FilmServer().getLatestFilms()
         }
     }

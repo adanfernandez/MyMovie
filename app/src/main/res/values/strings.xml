@@ -29,6 +29,9 @@
     <string name="favourites_title">Favoritas</string>
     <string name="film_vote_count">Votos</string>
     <string name="film_vote_rate">Valoración</string>
+    <string name="film_seen">Vista</string>
+    <string name="film_fav">Favorita</string>
+    <string name="film_image">Imagen de la película</string>
 
     <string name="logout">Salir de sesión</string>
 

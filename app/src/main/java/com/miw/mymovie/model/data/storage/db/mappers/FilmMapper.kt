@@ -31,8 +31,8 @@ object FilmMapper {
             username = film.username,
             seen = film.seen,
             idRemote = film.idRemote,
-//            voteCount = film.voteCount,
-//            voteAverage = film.voteAverage
+            voteCount = film.voteCount,
+            voteAverage = film.voteAverage
         )
     }
 }

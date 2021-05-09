@@ -13,9 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyMovie">
-        <activity android:name="com.miw.mymovie.ui.activity.MainActivity"/>
-        <activity android:name="com.miw.mymovie.ui.activity.RegisterActivity"/>
-        <activity android:name="com.miw.mymovie.ui.activity.LoginActivity">
+        <activity android:name=".ui.activity.MainActivity" />
+        <activity
+            android:name=".ui.activity.FilmDetailActivity"
+            android:parentActivityName=".ui.activity.MainActivity" />
+        <activity android:name=".ui.activity.RegisterActivity" />
+        <activity android:name=".ui.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
