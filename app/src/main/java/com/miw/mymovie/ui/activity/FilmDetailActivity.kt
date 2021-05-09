@@ -39,14 +39,19 @@ class FilmDetailActivity : AppCompatActivity() {
         intent.getParcelableExtra<Film>(EXTRA_FILM)?.apply {
             val apiFilm = obtainApiFilmInfo(this.idRemote)
             val persistedFilm = obtainPersistedFilmInfo(this.idRemote)
-            binding.imgFilm.setImageBitmap(imagebmp(this.image))
-            binding.swFav.isChecked = persistedFilm != null
-            binding.swSeen.isChecked = persistedFilm?.seen == true
+            if(persistedFilm != null){
+                binding.swFav.isChecked = true
+                binding.swSeen.isChecked = persistedFilm.seen
+            } else {
+            binding.swFav.isChecked = false
+            binding.swSeen.isChecked = false
+            }
+            binding.imgFilm.setImageBitmap(imagebmp(apiFilm.image))
             if(!binding.swFav.isChecked) {
                 binding.swSeen.isEnabled = false
             }
-            binding.txTitle.text = this.title
-            binding.txOverview.text = this.overview
+            binding.txTitle.text = apiFilm.title
+            binding.txOverview.text = apiFilm.overview
             binding.txVoteCount.text = voteCount(apiFilm.voteCount)
             binding.txVoteRate.text = voteRate(apiFilm.voteAverage)
             binding.swFav.setOnClickListener{handleFavClick(this)}
@@ -62,7 +67,7 @@ class FilmDetailActivity : AppCompatActivity() {
         val username = Settings(this@FilmDetailActivity).login!!
 
         val film = FilmProvider.requestFilmsUsers(username).filmList
-            .filter { film -> film != null && film.idRemote == remoteId }.toList()
+            .filter { film -> film.idRemote == remoteId }.toList()
         if (film.isEmpty())
             return null
 
@@ -70,28 +75,44 @@ class FilmDetailActivity : AppCompatActivity() {
     }
 
     private fun handleFavClick(film: Film) {
+        val username =Settings(this@FilmDetailActivity).login!!
+        val toAdd = Film(
+            idRemote = film.idRemote,
+            image = film.image,
+            overview = film.overview,
+            voteAverage = binding.txVoteRate.text.split(": ")[1].toDouble(),
+            voteCount = binding.txVoteCount.text.split(": ")[1].toInt(),
+            seen = binding.swSeen.isChecked,
+            title = film.title,
+            username = username,
+            originalTitle = film.originalTitle
+        )
        if (binding.swFav.isChecked) {
-           FilmProvider.saveFavoriteFilm(film)
+           FilmProvider.saveFavoriteFilm(toAdd)
            binding.swSeen.isEnabled = true
        } else {
-           FilmProvider.deleteFavoriteFilm(film)
+           FilmProvider.deleteFavoriteFilm(toAdd)
+           binding.swSeen.isChecked = false
            binding.swSeen.isEnabled = false
        }
     }
 
 
     private fun handleSeenClick(film: Film) {
+        val username =Settings(this@FilmDetailActivity).login!!
         val updated = Film(
             idRemote = film.idRemote,
             image = film.image,
             overview = film.overview,
-            voteAverage = film.voteAverage,
-            voteCount = film.voteCount,
+            voteAverage = binding.txVoteRate.text.split(": ")[1].toDouble(),
+            voteCount = binding.txVoteCount.text.split(": ")[1].toInt(),
             seen = binding.swSeen.isChecked,
             title = film.title,
-            username = film.username,
+            username = username,
             originalTitle = film.originalTitle
         )
+
+        FilmProvider.updateFavouriteFilm(updated)
     }
 
 

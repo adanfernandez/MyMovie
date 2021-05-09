@@ -16,8 +16,8 @@ object FilmMapper {
                 image = "",
                 originalTitle = "",
                 overview = "",
-                voteAverage = 0.0,
-                voteCount = 0
+                voteAverage = film.voteAverage,
+                voteCount = film.voteCount
             )
         }
         return null
