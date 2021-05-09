@@ -9,4 +9,5 @@
     <color name="dark_700">#303030</color>
     <color name="dark_500">#434343</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#B5B7B7</color>
 </resources>

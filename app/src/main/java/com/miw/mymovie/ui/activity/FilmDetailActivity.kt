@@ -25,7 +25,6 @@ class FilmDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFilmDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         initialize()
     }

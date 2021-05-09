@@ -28,7 +28,6 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.toolbar)
         binding.btnRegister.setOnClickListener { askForPermission() }
         binding.txGoLogin.setOnClickListener { goLogin() }
     }
